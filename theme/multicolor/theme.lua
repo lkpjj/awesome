@@ -3,8 +3,7 @@ theme                               = {}
 theme.confdir                       = os.getenv("HOME") .. "/.config/awesome/theme/multicolor"
 theme.wallpaper                     = theme.confdir .. "/kakaxi.jpg"
 
--- theme.font                          = "HeldustryFTVBasic Black 9"
-theme.font                          = "WenQuanYi Zen Hei Mono:style=Medium 10"
+theme.font                          = "Liberation Mono:style=Regular 10.5"
 
 -- {{{ Colors
 theme.fg_normal = "#aaaaaa"
@@ -151,6 +150,8 @@ theme.gwenview_icon                             = theme.confdir .. "/icons/gwenv
 theme.htop_icon                                 = theme.confdir .. "/icons/htop.png"
 theme.ideaCE_icon                               = theme.confdir .. "/icons/ideaCE.png"
 theme.ideaUE_icon                               = theme.confdir .. "/icons/ideaUE.png"
+theme.inkscope_icon                             = theme.confdir .. "/icons/inkscope.png"
+theme.jabref_icon                               = theme.confdir .. "/icons/jabref.png"
 theme.kchmviewer_icon                           = theme.confdir .. "/icons/kchmviewer.png"
 theme.kdiff3_icon                               = theme.confdir .. "/icons/kdiff3.png"
 theme.leafpad_icon                              = theme.confdir .. "/icons/leafpad.png"
@@ -163,6 +164,7 @@ theme.libremath_icon                            = theme.confdir .. "/icons/libre
 theme.librewriter_icon                          = theme.confdir .. "/icons/libreoffice-writer.png"
 theme.books_linux_icon                          = theme.confdir .. "/icons/books_linux.png"
 theme.mathematica_icon                          = theme.confdir .. "/icons/mathematica.png"
+theme.matlab_icon                               = theme.confdir .. "/icons/Matlab.png"
 theme.menu_books_icon                           = theme.confdir .. "/icons/menu_books.png"
 theme.menu_development_icon                     = theme.confdir .. "/icons/menu_development.png"
 theme.menu_docs_icon                            = theme.confdir .. "/icons/menu_docs.png"
@@ -200,6 +202,7 @@ theme.texworks_icon                             = theme.confdir .. "/icons/TeXwo
 theme.texmaker_icon                             = theme.confdir .. "/icons/texmaker.png"
 theme.thunderbird_icon                          = theme.confdir .. "/icons/thunderbird.png"
 theme.tkdiff_icon                               = theme.confdir .. "/icons/tkdiff.png"
+theme.tool_icon                                 = theme.confdir .. "/icons/tools.png"
 theme.tor_icon                                  = theme.confdir .. "/icons/tor.png"
 theme.virtualbox_icon                           = theme.confdir .. "/icons/virtualbox.png"
 theme.vlc_icon                                  = theme.confdir .. "/icons/vlc.png"

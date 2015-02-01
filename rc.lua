@@ -45,8 +45,8 @@ end
 
 ----used to config the screens
 -- run_once("auto_projector.sh")
--- run_once("synapse &")
--- run_once("auto_display.sh")
+run_once("synapse &")
+run_once("auto_display.sh")
 -- run_once("dropbox &")
 -- run_once("bcloud-gui &")
 run_once("easystroke")
@@ -61,11 +61,11 @@ os.setlocale(os.getenv("LANG"))
 
 -- beautiful init
 beautiful.init(os.getenv("HOME") .. "/.config/awesome/theme/multicolor/theme.lua")
-theme.wallpaper             = ".config/awesome/wallpaper/moon.jpg"
+theme.wallpaper             = ".config/awesome/wallpaper/kakaxi.jpg"
 -- common
 modkey     = "Mod4"
 altkey     = "Mod1"
-terminal   = "sakura" or "xterm"
+terminal   = "xfce4-terminal" or "xterm"
 editor     = os.getenv("EDITOR") or "emacs"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -113,57 +113,100 @@ end
 -- }}}
 
 --{{{menu
-myawesomemenu = {
-   { "manual", terminal .. " -e man awesome" },
+awesome_menu = {
+   { "manual", "xterm -e man awesome" },
    { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
 
-menu_IDE={   
-   {"QTCreator",      "qtcreator",beautiful.qt_icon},
-   {"Libreoffice",    "libreoffice", beautiful.librewriter_icon},
-   {"Xmind",          "xmind",beautiful.xmind_icon},
-   {"Leafpad",        "leafpad",beautiful.leafpad_icon},
-   {"sublime",        "subl",beautiful.sublime_icon},
-   -- {" Texmaker",       "texmaker",beautiful.texmaker_icon},
-   {"Emacs",          "emacs",beautiful.emacs_icon},
-   {"Eclipse",        "eclipse-bin-4.2",beautiful.eclipse_icon},
-   {"Chmsee",         "kchmviewer",beautiful.kchmviewer_icon}							  
-}
-
-menu_fav = {  
-   {"Virtualbox",           "VirtualBox",beautiful.virtualbox_icon},
+menu_internet={
+   {"chrome",               "google-chrome-stable",beautiful.chrome_icon},
+   {"firefox",              "firefox",beautiful.firefox_icon},
+   {"goagent",              "goagent-gtk"},
+   {"droppox",              "dropbox",beautiful.dropbox_icon},
    {"qq2013",               "qq2013",beautiful.qq_icon},
    {"bcloud",               "bcloud-gui",beautiful.bcloud_icon},
-   {"Chrome",               "google-chrome-stable",beautiful.chrome_icon},
-   {"steam",                "steam",beautiful.steam_icon},
-   {"Firefox",              "firefox",beautiful.firefox_icon},
-   {"Droppox",              "dropbox",beautiful.dropbox_icon},
-   {"synapse",              "synapse",beautiful.synapse_icon}
+   {"wicd",                 "wicd-client"}
+}
+
+menu_program={   
+   {"QtCreator",      "qtcreator",beautiful.qt_icon},   
+   {"Texmaker",       "texmaker",beautiful.texmaker_icon},
+   {"Emacs",          "emacs",beautiful.emacs_icon},
+   {"Cmake",          "cmake-gui"},
+   {"Matlab",         "xterm -e /usr/local/MATLAB/R2013a/bin/matlab",beautiful.matlab_icon},
+   {"Eclipse",        "eclipse-bin-4.2",beautiful.eclipse_icon}   
+}
+
+menu_office={
+   {"libre-base",      "base",beautiful.librebase_icon},
+   {"libre-calc",      "calc",beautiful.librecalc_icon},
+   {"libre-draw",      "draw",beautiful.libredraw_icon},
+   {"libre-math",      "math",beautiful.libremath_icon},
+   {"libre-impress",   "impress",beautiful.libreimpress_icon},
+   {"libre-writer",    "writer",beautiful.libremath_icon}
+}
+
+menu_editor={
+   {"office",         menu_office, beautiful.menu_office_icon},
+   {"Sublime",        "subl",beautiful.sublime_icon},
+   {"Leafpad",        "leafpad",beautiful.leafpad_icon},
+   {"Emacs",          "emacs",beautiful.emacs_icon}
+}
+
+menu_game={
+   {"steam",                "steam",beautiful.steam_icon}
+}
+
+menu_image={
+   {"gpicview",             "gpicview",beautiful.gthumb_icon},
+   {"Inkscape",             "inkscape",beautiful.inkscope_icon},
+   {"gimp",                 "gimp", beautiful.gimp_icon}
+}
+
+menu_media={
+   {"Smplayer",             "smplayer",beautiful.smplayer_icon},
+   {"VLC",                  "vlc",beautiful.vlc_icon}
 }
 
 menu_multimedia={
-   {"Thunderbird",          "thunderbird", beautiful.thunderbird_icon},
+   {"media",                menu_media,beautiful.menu_multimedia_icon},
+   {"image",                menu_image,beautiful.menu_graphics_icon},
+   {"game",                 menu_game,beautiful.steam_icon}
+}
+
+menu_tools={
+   {"Virtualbox",           "VirtualBox",beautiful.virtualbox_icon},
    {"Kttorrent",            "kttorrent", beautiful.qbittorrent_icon},
-   {"Smplayer",            "smplayer",beautiful.smplayer_icon},
-   {"zathura",              "zathura",beautiful.okular_icon},
-   {"gpicview",              "gpicview",beautiful.gthumb_icon},
-   {"gimp",                "gimp", beautiful.gimp_icon},
-   {"VLC",                 "vlc",beautiful.vlc_icon}
+   {"Xmind",                "xmind",beautiful.xmind_icon},
+   {"Okular",               "okular",beautiful.okular_icon},
+   {"Email",                "thunderbird", beautiful.thunderbird_icon},
+   {"synapse",              "synapse",beautiful.synapse_icon},
+   {"Jabref",               "jabref",beautiful.jabref_icon},
+   {"Chmsee",               "kchmviewer",beautiful.kchmviewer_icon},   
+   {"Scrot",                "scrot"}   
+}
+
+
+menu_fav = {  
+   {"Emacs",                "emacs",beautiful.emacs_icon},
+   {"火狐",              "firefox",  beautiful.firefox_icon},
+   {"扩展屏幕",               "auto_display.sh",beautiful.multiplemonitors_icon}
+   
 }
 
 mymainmenu = awful.menu({ items = {
-				 {"Awesome",              myawesomemenu, beautiful.awesome_icon },
-				 {"MyFavor",              menu_fav, beautiful.fav_icon},
-				 {"Media",                menu_multimedia,beautiful.menu_multimedia_icon},
-				 {"Editor",               menu_IDE, beautiful.editor_icon},
-				 {"Emacs",                "emacs",beautiful.emacs_icon},  
-				 -- {"Firefox",              "firefox",  beautiful.firefox_icon},
-				 {"Chrome",               "google-chrome-stable",beautiful.chrome_icon},
-				 {"PcmanFM",              filemanager, beautiful.filemanager_icon},
-				 {"Terminal",             "sakura",beautiful.terminal_icon},
-				 {"Power",                "/usr/bin/shutdown.sh",beautiful.shutdown_icon}
+				 {"桌面",              awesome_menu, beautiful.awesome_icon },
+				 {"常用",                  menu_fav, beautiful.fav_icon},
+				 {"编程",                 menu_program,beautiful.menu_development_icon},
+				 {"视频",                menu_multimedia,beautiful.menu_multimedia_icon},
+				 {"办公",               menu_editor, beautiful.editor_icon},
+				 {"工具",                menu_tools,beautiful.menu_settings_icon},
+				 {"火狐",              "firefox",  beautiful.firefox_icon},
+				 {"文件",              filemanager, beautiful.filemanager_icon},
+				 {"终端",             terminal,beautiful.terminal_icon},
+				 {"关机",                "/usr/bin/shutdown.sh",beautiful.shutdown_icon}
 }
 					   })
 
