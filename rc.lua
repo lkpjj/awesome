@@ -190,9 +190,9 @@ menu_tools={
 
 
 menu_fav = {  
-   {"Emacs",                "emacs",beautiful.emacs_icon},
-   {"火狐",              "firefox",  beautiful.firefox_icon},
-   {"扩展屏幕",               "auto_display.sh",beautiful.multiplemonitors_icon}
+   {"Emacs",               "emacs",beautiful.emacs_icon},
+   {"火狐",                 "firefox",  beautiful.firefox_icon},
+   {"扩展屏幕",              "xterm -e auto_display.sh",beautiful.multiplemonitors_icon}
    
 }
 
