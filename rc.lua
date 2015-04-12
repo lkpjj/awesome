@@ -46,7 +46,7 @@ end
 ----used to config the screens
 -- run_once("auto_projector.sh")
 run_once("synapse &")
-run_once("auto_display.sh")
+-- run_once("auto_display.sh")
 -- run_once("dropbox &")
 -- run_once("bcloud-gui &")
 run_once("easystroke")
@@ -61,7 +61,7 @@ os.setlocale(os.getenv("LANG"))
 
 -- beautiful init
 beautiful.init(os.getenv("HOME") .. "/.config/awesome/theme/multicolor/theme.lua")
-theme.wallpaper             = ".config/awesome/wallpaper/kakaxi.jpg"
+theme.wallpaper             = ".config/awesome/wallpaper/forever.jpg"
 -- common
 modkey     = "Mod4"
 altkey     = "Mod1"
@@ -197,16 +197,17 @@ menu_fav = {
 }
 
 mymainmenu = awful.menu({ items = {
-				 {"桌面",              awesome_menu, beautiful.awesome_icon },
-				 {"常用",                  menu_fav, beautiful.fav_icon},
-				 {"编程",                 menu_program,beautiful.menu_development_icon},
-				 {"视频",                menu_multimedia,beautiful.menu_multimedia_icon},
-				 {"办公",               menu_editor, beautiful.editor_icon},
-				 {"工具",                menu_tools,beautiful.menu_settings_icon},
-				 {"火狐",              "firefox",  beautiful.firefox_icon},
-				 {"文件",              filemanager, beautiful.filemanager_icon},
-				 {"终端",             terminal,beautiful.terminal_icon},
-				 {"关机",                "/usr/bin/shutdown.sh",beautiful.shutdown_icon}
+				 {"桌面",       awesome_menu, beautiful.awesome_icon },
+				 {"常用",       menu_fav, beautiful.fav_icon},
+				 {"编程",       menu_program,beautiful.menu_development_icon},
+         {"网络",       menu_internet,beautiful.menu_web_icon},
+				 {"视频",       menu_multimedia,beautiful.menu_multimedia_icon},
+				 {"办公",       menu_editor, beautiful.editor_icon},
+				 {"工具",       menu_tools,beautiful.menu_settings_icon},
+				 {"火狐",       firefox,  beautiful.firefox_icon},
+				 {"文件",       filemanager, beautiful.filemanager_icon},
+				 {"终端",       terminal,beautiful.terminal_icon},
+				 {"关机",       "/usr/bin/shutdown.sh",beautiful.shutdown_icon}
 }
 					   })
 
@@ -436,8 +437,8 @@ for s = 1, screen.count() do
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(mailicon)
     right_layout:add(mailwidget)
-    -- right_layout:add(netdownicon)
-    -- right_layout:add(netdowninfo)
+    right_layout:add(netdownicon)
+    right_layout:add(netdowninfo)
     -- right_layout:add(netupicon)
     -- right_layout:add(netupinfo)
     right_layout:add(memicon)
