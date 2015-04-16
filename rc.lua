@@ -484,7 +484,7 @@ root.buttons(awful.util.table.join(
 globalkeys = awful.util.table.join(
 
    -- xscreensaver
-   awful.key({modkey,"Control"},l,function() awful.util.spawn("xscreensaver-command -lock") end),
+   awful.key({modkey,"Control"},"l",function() awful.util.spawn("xscreensaver-command -lock") end),
    -- Capture a screenshot
    awful.key({ altkey }, "p", function() awful.util.spawn("screenshot",false) end),
 
