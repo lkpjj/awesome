@@ -200,11 +200,11 @@ mymainmenu = awful.menu({ items = {
 				 {"桌面",       awesome_menu, beautiful.awesome_icon },
 				 {"常用",       menu_fav, beautiful.fav_icon},
 				 {"编程",       menu_program,beautiful.menu_development_icon},
-         {"网络",       menu_internet,beautiful.menu_web_icon},
+				 {"网络",       menu_internet,beautiful.menu_web_icon},
 				 {"视频",       menu_multimedia,beautiful.menu_multimedia_icon},
 				 {"办公",       menu_editor, beautiful.editor_icon},
 				 {"工具",       menu_tools,beautiful.menu_settings_icon},
-				 {"火狐",       firefox,  beautiful.firefox_icon},
+				 {"火狐",       "firefox",  beautiful.firefox_icon},
 				 {"文件",       filemanager, beautiful.filemanager_icon},
 				 {"终端",       terminal,beautiful.terminal_icon},
 				 {"关机",       "/usr/bin/shutdown.sh",beautiful.shutdown_icon}
@@ -483,6 +483,8 @@ root.buttons(awful.util.table.join(
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
 
+   -- xscreensaver
+   awful.key({modkey,"Control"},l,function() awful.util.spawn("xscreensaver-command -lock") end),
    -- Capture a screenshot
    awful.key({ altkey }, "p", function() awful.util.spawn("screenshot",false) end),
 
