@@ -130,13 +130,13 @@ menu_internet={
    {"wicd",                 "wicd-client"}
 }
 
-menu_program={   
-   {"QtCreator",      "qtcreator",beautiful.qt_icon},   
+menu_program={
+   {"QtCreator",      "qtcreator",beautiful.qt_icon},
    {"Texmaker",       "texmaker",beautiful.texmaker_icon},
    {"Emacs",          "emacs",beautiful.emacs_icon},
    {"Cmake",          "cmake-gui"},
    {"Matlab",         "xterm -e /usr/local/MATLAB/R2013a/bin/matlab",beautiful.matlab_icon},
-   {"Eclipse",        "eclipse-bin-4.2",beautiful.eclipse_icon}   
+   {"Eclipse",        "eclipse-bin-4.2",beautiful.eclipse_icon}
 }
 
 menu_office={
@@ -184,16 +184,16 @@ menu_tools={
    {"Email",                "thunderbird", beautiful.thunderbird_icon},
    {"synapse",              "synapse",beautiful.synapse_icon},
    {"Jabref",               "jabref",beautiful.jabref_icon},
-   {"Chmsee",               "kchmviewer",beautiful.kchmviewer_icon},   
-   {"Scrot",                "scrot"}   
+   {"Chmsee",               "kchmviewer",beautiful.kchmviewer_icon},
+   {"Scrot",                "scrot"}
 }
 
 
-menu_fav = {  
+menu_fav = {
    {"Emacs",               "emacs",beautiful.emacs_icon},
    {"火狐",                 "firefox",  beautiful.firefox_icon},
    {"扩展屏幕",              "xterm -e auto_display.sh",beautiful.multiplemonitors_icon}
-   
+
 }
 
 mymainmenu = awful.menu({ items = {
@@ -297,7 +297,7 @@ volumewidget = lain.widgets.alsa({
 --增加gmail插件
 --需要在用户根目录下添加 .netrc
 --配置文件内容为: machine mail.google.com login 账户 password 密码
--- {{{ Start Gmail 
+-- {{{ Start Gmail
 mailicon = wibox.widget.imagebox(beautiful.widget_mail)
 mailwidget = wibox.widget.textbox()
 gmail_t = awful.tooltip({ objects = { mailwidget },})
@@ -306,7 +306,7 @@ vicious.register(mailwidget, vicious.widgets.gmail,
         gmail_t:set_text(args["{subject}"])
         gmail_t:add_to_object(mailicon)
             return args["{count}"]
-                 end, 120) 
+                 end, 120)
 
      mailicon:buttons(awful.util.table.join(
          awful.button({ }, 1, function () awful.util.spawn("urxvt -e mutt", false) end)
@@ -494,7 +494,7 @@ globalkeys = awful.util.table.join(
    awful.key({ }, "XF86AudioPrev",function () awful.util.spawn( "mpc prev" ) end),
    awful.key({ }, "XF86AudioPlay",function () awful.util.spawn( "mpc play" ) end),
    awful.key({ }, "XF86AudioStop",function () awful.util.spawn( "mpc pause" ) end),
-  
+
    awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
    awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
    awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
@@ -523,12 +523,12 @@ globalkeys = awful.util.table.join(
 			   client.focus:raise()
             end
    end),
-   
+ 
    -- Standard program
    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
    awful.key({ modkey, "Control" }, "r", awesome.restart),
    awful.key({ modkey, "Shift"   }, "q", awesome.quit),
-   
+
    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
@@ -539,7 +539,7 @@ globalkeys = awful.util.table.join(
    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 	
    awful.key({ modkey, "Control" }, "n", awful.client.restore),
-   
+
    -- Prompt
    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
